@@ -10,18 +10,24 @@ export default class Login extends Component {
         }
     }
 
+  
+
     funHandleChange = (e) => {
      this.setState({[e.target.name]:e.target.value}) 
     }
 
-    funSubmit = () => {
+    funSubmit = (e) => {
+      e.preventDefault();
       if(
-        this.state.username !== "" || this.state.password !== "" 
-      ){
+        this.state.username === "" || this.state.password === "" ){
+        return false
+      }
+      else{
+        localStorage.setItem('pass',this.state.password);
         this.props.history.push('/home')
       }
-      
     }
+
     
     render() {
         return (
@@ -29,11 +35,11 @@ export default class Login extends Component {
             <form>
   <div className="form-group">
     <label>Username</label>
-    <input type="username" className="form-control w-75" name="username" value={this.state.username} onChange={this.funHandleChange}/>
+    <input type="username" className="form-control w-75" name="username" placeholder="username" value={this.state.username} onChange={this.funHandleChange}/>
   </div>
   <div className="form-group">
     <label>Password</label>
-    <input type="password" className="form-control w-75" name="password" value={this.state.password} onChange={this.funHandleChange}/>
+    <input type="password" className="form-control w-75" name="password" placeholder="password" value={this.state.password} onChange={this.funHandleChange}/>
   </div>
   <button type="submit" className="btn btn-primary" onClick={this.funSubmit}>Login</button>
 </form>

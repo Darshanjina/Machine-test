@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Dropdown from "../components/Dropdown";
 import Information from "../components/Information";
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 
 export default class Home extends Component {
     constructor(props) {
@@ -11,6 +11,7 @@ export default class Home extends Component {
              vehicle:"Car",
         }
     }
+
 
     funChangeVehicle = (value) => {
         this.setState({vehicle:value});

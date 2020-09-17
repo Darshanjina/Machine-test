@@ -17,6 +17,7 @@ export default class User extends Component {
   };
 
   funLog = () => {
+    localStorage.removeItem('pass');
     this.props.history.push('/');
   };
 
@@ -25,19 +26,19 @@ export default class User extends Component {
       <Navbar>
         <div>
           <form className="mt-5">
-            <div class="form-group">
-              <label for="Username ">Username : dummyname</label>
+            <div className="form-group">
+              <label>Username : dummyname</label>
             </div>
             {this.state.changepass ? 
             (
-              <div class="form-group">
-                <label for="Password">New Password : </label>
+              <div className="form-group">
+                <label>New Password : </label>
                 <input type="text" />
               </div>
             ) : 
             (
-              <div class="form-group">
-                <label for="Password">Password : *****</label>
+              <div className="form-group">
+                <label>Password : *****</label>
               </div>
             )}
           </form>
